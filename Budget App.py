@@ -7,10 +7,13 @@ class Budget:
     def deposit_funds(self, amount, reason):
         self.amount = amount
         self.reason = reason
-        return "This is a deposit method"
+        return ("You have deposited %s" % amount)
 
     def calc_balance(self):
-        return "This is a method to calculate the current balance of the category"
+        totalAmount = 0
+        for item in self.category:
+            totalAmount += item["amount"]
+            return ("Your current balance is %s" %total cash)
     
     def withdraw_fund(self, amount, reason):
         return "This is a  method to withdraw funds for a category"
