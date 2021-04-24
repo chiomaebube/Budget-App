@@ -9,7 +9,7 @@ class Budget:
         self.reason = reason
         return "This is a deposit method"
 
-    def calc_balance(self, amount, reason):
+    def calc_balance(self):
         return "This is a method to calculate the current balance of the category"
     
     def withdraw_fund(self, amount, reason):
@@ -23,9 +23,10 @@ Food = Budget("Food", 1000)
 Entertainment = Budget("Entertainment", 1000)
 
 Food.deposit_funds(1000, "Salary")
-Food.withdraw_fund(200)
+Food.withdraw_fund(200, "Party")
+Food.calc_balance()
 
-print(Clothing.deposit_funds())
+print(Clothing.deposit_funds(20000, "salary"))
 print(Clothing.calc_balance())
-print(Clothing.withdraw_fund())
-print(Clothing.transfer_funds())
+print(Clothing.withdraw_fund(300, "Party"))
+print(Clothing.transfer_funds(100, "more money"))
