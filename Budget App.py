@@ -13,14 +13,18 @@ class Budget:
         totalAmount = 0
         for item in self.category:
             totalAmount += item["amount"]
-            return ("Your current balance is %s" %total cash)
+            return ("Your current balance is %s" %totalAmount)
     
     def withdraw_fund(self, amount, reason):
         return "This is a  method to withdraw funds for a category"
 
-    def transfer_funds(self, amount, reason):
-        return "This is a method to tranfer funds between categories"
-
+    def transfer_funds(self, amount, category):
+        if(self.calc_balance(amount)):
+            self.withdraw_fund(amount, "Transfer to" + category.name)
+            category.deposit_funds(amount, "Transfer from" + self.category)
+            return True
+        return False
+    
 Clothing = Budget("Clothing", 1000)
 Food = Budget("Food", 1000)
 Entertainment = Budget("Entertainment", 1000)
